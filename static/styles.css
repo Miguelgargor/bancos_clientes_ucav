@@ -1,0 +1,144 @@
+
+body{
+    font-family: Arial, sans-serif; /* Fuente de letra a Arial si está disponible, de lo contrario, utiliza una fuente sans-serif genérica */
+    font-size: medium;
+}
+
+
+
+/*............................... 1º CONTENEDOR-> DATOS PROCESADOS ..............................................................*/
+
+#boton_volver_home{
+    width:10%;
+    margin-left: 2%;
+    margin-top: 2%;
+    padding-bottom: 1%;
+}
+/*...............................................................................................................................*/
+
+/*............................... 2º CONTENEDOR-> DATOS PROCESADOS ..............................................................*/
+#datos_obtenidos_esquema{
+    display: flex;
+    margin-top: 3%;
+}
+
+#MENSAJE{
+    flex:auto;
+    display: flex; /* Utiliza el modelo de caja flexible */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */  
+    background-color: rgb(123, 223, 100);
+    margin-left: 10%;
+    margin-right: 35%; /* Agregar un margen derecho -> ESPACIO EN BLANCO ENTRE LOS 2 CONTENEDORES*/
+    border-radius: 10px; /* Ajusta el valor según el grado de redondez que desees */
+    border: 2px solid rgb(44, 90, 34);
+
+}
+
+#IMPORTE-TOTAL{
+    flex:auto;
+    display: flex; /* Utiliza el modelo de caja flexible */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    background-color: rgb(247, 187, 118);
+    margin-right: 10%;
+    border-radius: 10px; /* Ajusta el valor según el grado de redondez que desees */
+    border: 2px solid rgb(215, 137, 11);
+}
+
+
+#tabla_datos{
+        display: flex;
+        justify-content: center; /* Centra horizontalmente en el contenedor padre */
+        align-items: center; /* Centra verticalmente en el contenedor padre */
+        margin-top:3%;
+    }
+
+
+
+/*...............................................................................................................................*/
+
+/*......................................... GENERAL .............................................................................*/
+#encabezado{
+    background-color: rgb(162, 216, 247);
+    height: auto;
+    border-radius: 10px; /* Ajusta el valor según el grado de redondez que desees */
+    padding-top: 0.2%;    /* ESPACIO DENTRO DEL CONTENEDOR */
+    padding-bottom: 0.2%;
+
+}
+
+#encabezado_titulo_y_logo{
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    align-items: center; /* Centra verticalmente los elementos */
+
+}
+
+h1 {flex:1;
+    margin-left: 0.9%;
+    color: blue; /* Cambia el color del texto a azul */
+}
+
+#LOGO_UCAV{
+    flex:0.2;
+    width: 70%;
+    margin-top: 1%;
+    margin-left: 10%;
+}
+
+
+
+p{margin-left: 0.9%;}
+
+#texto_pequeño{font-size: small;}
+
+
+#formulario{
+    padding: 2%;
+    margin: 2%;
+    margin-top: 5%;
+}
+
+
+
+footer {
+    background-color: #333; /* COLOR FONDO */
+    color: #fff;            /* COLOR LETRAS */
+    text-align: center;       /* ALINEACIÓN TEXTO */
+    padding: 1px;             /* ANCHO BARRA FOOTER */
+    position: fixed;          /* POSICIÓN */
+    bottom: 0;                /* DESDE ABAJO */
+    width: 100%;              /* QUE OCUPE TODO EL ANCHO DE LA PANTALLA */
+}
+/*...............................................................................................................................*/
+
+
+/*................................CONTENDOR DE ALERTA DE NO HABER LLENADO TODO EL FORMULARIO..............*/
+.alert-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.alert-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+/*...........................................................................................................*/

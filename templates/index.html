@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROCESAR BANCO CLIENTES</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- ESTILO CSS -->
+    <link rel="icon" href="https://raw.githubusercontent.com/Miguelgargor/IMAGENES_APPs/main/simbolo_dinero.png">
+
+
+    <!-- ........................................................................................................ -->
+
+    <!-- COMPROBAR QUE ESTÉN LOS 2 INPUTS BIEN METIDOS -->
+    <script>
+        function mostrarAlerta(mensaje) {
+            var div = document.createElement("div");
+            div.className = "alert-container";
+    
+            var alertBox = document.createElement("div");
+            alertBox.className = "alert-box";
+    
+            var closeButton = document.createElement("span");
+            closeButton.className = "close-btn";
+            closeButton.innerHTML = "&times;";
+            closeButton.onclick = function() {
+                div.remove();
+            };
+    
+            var p = document.createElement("p");
+            p.innerHTML = "<strong style='color: red;'>" + mensaje + "</strong>";
+    
+            alertBox.appendChild(closeButton);
+            alertBox.appendChild(p);
+            div.appendChild(alertBox);
+    
+            document.body.appendChild(div);
+        }
+    
+        function validarFormulario() {
+            var banco = document.getElementById("banco").value;
+            var primerNumDocumento = document.getElementById("primer_num_documento").value;
+            var archivo = document.getElementById("archivo").value;
+    
+            if (banco.trim() === '' || primerNumDocumento.trim() === '' || archivo.trim() === '') {
+                mostrarAlerta("Por favor, completa todos los campos.");
+                return false;
+            }
+    
+            return true;
+        }
+    </script>
+    <!-- ........................................................................................................ -->
+
+</head>
+
+
+<body>
+    <div id="encabezado">
+        <div id="encabezado_titulo_y_logo">
+            <h1>Procesamiento de Remesas Bancarias de CLIENTES</h1>
+
+            <!-- LOGO + HIPERVÍNCULO A LA PÁGINA WEB DE LA UCAV -->
+            <a href="https://www.ucavila.es/" id="LOGO_UCAV">
+                <img src="https://raw.githubusercontent.com/Miguelgargor/IMAGENES_APPs/main/UCAV_logo.png" id="LOGO_UCAV">
+            </a>
+        </div>
+
+
+        <!-- TEXTO: -->
+        <br>
+        <p>Automatiza la creación del Diario General con los cobros de clientes. Sólo has de indicar el <b><i>nombre de la remesa bancaria</i></b> y el <b><i>primer número de documento</i></b> que desees.</p>
+        <br>
+
+
+        <p><b><u>IMPORTANTE</u>:</b> El nombre de la remesa del banco debe empezar por: <b><i>'SANTANDER 5545'</i></b>, <b><i>'SANTANDER 0635'</i></b>,
+                            <b><i>'CAIXABANK 9098'</i></b>, <b><i>'CAIXABANK 0550'</i></b>, <b><i>'BBVA'</i></b> o <b><i>'CAJAMAR'</i></b>.</p>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- COMPROBAR QUE SE HAN RELLENADO TODOS LOS CAMPOS: -->
+    <div id="formulario">
+        <form action="/procesados" method="post" onsubmit="return validarFormulario()" enctype="multipart/form-data">     <!-- FUNCIÓN DE ARRIBA PARA COMPROBAR QUE SE HAN RELLENADO TODOS LOS CAMPOS -->
+        
+            <!-- INPUT-> NOMBRE BANCO: -->
+            <label for="banco"><b>Nombre del Banco:</b></label>
+            <select id="banco" name="banco">
+                <option value="SANTANDER 5545">SANTANDER 5545</option>
+                <option value="SANTANDER 0635">SANTANDER 0635</option>
+                <option value="CAIXABANK 9098">CAIXABANK 9098</option>
+                <option value="CAIXABANK 0550">CAIXABANK 0550</option>
+                <option value="BBVA">BBVA</option>
+                <option value="CAJAMAR">CAJAMAR</option>
+            </select><br><br><br><br>
+            
+
+
+            <!-- INPUT-> ARCHIVO: -->
+            <label for="archivo"><b>Importar Remesa Bancaria:</b></label>
+            <input type="file" id="archivo" name="archivo"><br><br><br><br>
+
+
+
+            <!-- INPUT-> 1º Nº DOCUMENTO: -->
+            <label for="primer_num_documento"><b>Primer Número de Documento:</b></label>
+            <input type="text" id="primer_num_documento" name="primer_num_documento" placeholder="Ejemplo: 2324BS0001"><br><br><br><br>
+            
+            <!-- BOTÓN-> PROCESAR DATOS: -->
+            <input type="submit" value="Procesar">
+        </form>
+
+
+
+        <br><br>
+        <p id="texto_pequeño"><i>* Si se obtiene error, comprobar que los campos del nombre del Banco y la Remesa Bancaria son los correctos.</i></p>
+    </div>
+
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        &copy; 2024 Miguel García Gordo
+    </footer>
+
+
+
+
+</body>
+</html>
